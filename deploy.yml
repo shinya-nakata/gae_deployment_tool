@@ -1,0 +1,40 @@
+pythonDeployTool: /usr/local/gae/py_gae_1.9.50/appcfg.py
+javaDeployTool: /usr/local/gae/java_gae_1.9.49/bin/appcfg.sh
+apps:
+  - name: test
+    applicationId: test_id
+    version: 0
+    source:
+      type: local
+      location: git_path
+    privateKey: private_key_file
+    replaceFiles:
+      - src: src_file1
+        dist:
+          type: git
+          location: git_path
+      - src: src_file2
+        dist:
+          type: local
+          location: local_filepath
+    # java or python
+    runtime: java
+
+  - name: test2
+    applicationId: test
+    version: 0
+    source:
+      type: git
+      location: git_path
+    privateKey: private_key_file
+    replaceFiles:
+      - src: src_file1
+        dist:
+          type: git
+          location: git_path
+      - src: src_file2
+        dist:
+          type: local
+          location: local_filepath
+    # java or python
+    runtime: java
