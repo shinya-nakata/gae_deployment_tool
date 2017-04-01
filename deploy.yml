@@ -1,12 +1,15 @@
-pythonDeployTool: /usr/local/gae/py_gae_1.9.50/appcfg.py
+#pythonDeployTool: /usr/local/gae/py_gae_1.9.50/appcfg.py
+pythonDeployTool: /home/nkt/Downloads/google-cloud-sdk/bin/gcloud
 javaDeployTool: /usr/local/gae/java_gae_1.9.49/bin/appcfg.sh
+pythonRuntime: /home/nkt/.pyenv/versions/2.7.13/bin/python
+javaRuntime: javaruntime
 apps:
-  - name: test
-    applicationId: test_id
-    version: 0
+  - name: nakata-python-sample
+    applicationId: nakata-python-sample
+    version: 1
     source:
       type: local
-      location: git_path
+      location: /home/nkt/gae/python-gae-quickstart/app.yaml
     privateKey: private_key_file
     replaceFiles:
       - src: src_file1
@@ -18,7 +21,7 @@ apps:
           type: local
           location: local_filepath
     # java or python
-    runtime: java
+    type: python
 
   - name: test2
     applicationId: test
@@ -37,4 +40,4 @@ apps:
           type: local
           location: local_filepath
     # java or python
-    runtime: java
+    type: java
