@@ -1,28 +1,18 @@
 deployTool: /usr/local/google-cloud-sdk/bin/gcloud
-runtime: /home/nkt/.pyenv/versions/2.7.13/bin/python
 tempFolder: /tmp
 apps:
-  - name: nakata-python-sample
-    applicationId: nakata-python-sample
+  - name: testapp1
+    applicationId: applicationIdTest
     version: 1
-#    source:
-#      type: git
-#      location: https://github.com/shinya-nakata/gae-python-sample
     source:
       type: local
       location: /Users/nakata/PycharmProjects/gae-python-sample
-    privateKey: private_key_file
+    yamlFile: app.yaml
     replaceFiles:
       - src_file: ./test
         dist_file: ./
-      - src_file: ./tes
-        dist_file: ./test
-    # java or python
-    type: python
-    #yamlFiles:
-    #  - app.yaml
 
-  - name: test2
+  - name: testapp2
     applicationId: test
     version: 0
     source:
@@ -38,5 +28,3 @@ apps:
         dist:
           type: local
           location: local_filepath
-    # java or python
-    type: java
